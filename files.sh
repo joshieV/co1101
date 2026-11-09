@@ -1,6 +1,8 @@
 # Author: Jason Reviewer: N-A
 # Author StudentID: 269018964
 
+set -u
+
 # 1. Take the group name as the first argument ($1). If there isn't one, print a usage message and stop with exit 1.
 if [ -z $1 ]; then # check if a value was passsed for the first argument
     echo "no groupname passed" # no value was passed print a usage message
@@ -35,19 +37,19 @@ done
 
 # 4. Show the file with cat and print how many members there are, using wc -l.
 
-cat members.txt
+cat members.txt # Display contents of members.txt
 echo "lines:"
-wc -l members.txt
+wc -l members.txt # Show number of lines in members.txt
 
 # 5. Copy the file to members_backup.txt, check that both files exist with -f, and list the folder.
 cp members.txt members_backup.txt
-if [ -f members.txt ]; then
+if [ -f members.txt ]; then # Check if file with name members.txt exists
     echo "members.txt exists"
 else
     echo "members.txt does not exist"
 fi
 
-if [ -f members_backup.txt ]; then
+if [ -f members_backup.txt ]; then # Check if file with name members_backup.txt exists
     echo "members_backup.txt exists"
 else
     echo "members_backup.txt does not exist"
@@ -61,11 +63,11 @@ echo "$(date)" > log.txt
 
 # 7. Ask Delete everything? (y/n). If the answer is y, delete the files and the folder. Otherwise, print the folder path.
 echo "Delete everything? (y/n)"
-read choice
-if [ $choice == y ]; then
-    cd ..
-    rm -r $1
+read choice # Get user input
+if [ $choice == y ]; then # If user enters "y"
+    cd .. # Change current working directory to parent foldder
+    rm -r $1 # Delete the directory with name equal to value of $1 in the current working directory
 else
-    cd $1
-    pwd
+    cd $1 # Change current working directory to directory with name equal to value of $1 in the current working directory
+    pwd # Output the address/path of the current working directory
 fi

@@ -1,7 +1,31 @@
 #!/bin/bash
 # Author: Reyhan
-# Reviewer: N/A
+# Reviewer: Joshua
 # Student ID: 249021606
+
+# Review:
+# Overall the code is good. However, there are a few things that can be improved.
+#
+# 1. Input validation:
+#    The script does not validate the input after `read -p`. If the user enters
+#    a non-numeric value or leaves it blank, the arithmetic expansions will fail.
+#    Consider adding a check such as:
+#        [[ $n =~ ^[0-9]+$ ]] || { echo "Please enter a positive integer"; exit 1; }
+#
+# 2. Factorial calculation:
+#    The logic is correct, but note that inside (( )) and $(( )) the $ prefix is
+#    not required, e.g. (( i <= n )) is valid and more idiomatic.
+#
+# 3. Prime number check:
+#    `echo "Not a prime number"` is printed for every non-prime i, which floods
+#    the output and makes it hard to read. Since the task is to print the prime
+#    numbers, the inner loop should simply `break` without printing:
+#        if (( i % j == 0 )); then
+#            is_prime=0
+#            break
+#        fi
+#    Optionally, the inner loop only needs to check divisors up to i/2
+#    (or j*j <= i) for efficiency.
 
 # 1. Print the multiplication table from 1 to n, one row per line (use a loop inside a loop).
 read -p "Enter a number n: " n # Asks the user to input a number

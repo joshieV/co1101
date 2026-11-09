@@ -1,3 +1,6 @@
+#Author: Joshua
+#Author Student ID: 269027194 
+
 # co1101 (Group assignment)
 
 We have made 4 scripts being: files.sh, calc.sh, loops.sh and menu.sh. 
@@ -23,9 +26,10 @@ chmod +x files.sh calc.sh loops.sh menu.sh
 
 To run the scripts
 ```
-./files.sh groupA
+./files.sh $1
 ./calc.sh $1 $2
-./loops.sh
+./loops.sh $1
 ./menu.sh
 ```
+$1 is the groupname for files.sh
 $1 and $2 are the arguments of your choice for calc.sh

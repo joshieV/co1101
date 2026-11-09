@@ -1,6 +1,7 @@
 #!/bin/bash
-#Author: Joshua Reviewer: 
-#student ID: 
+#Author: Joshua 
+#Reviewer: Jason 
+#Author Student ID: 269027194 
 
 #set -u checks if the variable is set or not. If its not set it will throw an error and exit the script
 set -u
@@ -11,7 +12,7 @@ print_result() {
 }
 
 if [ $# -ne 2 ]; then #Checks if the number of arguments is not equal to 2
-    echo "Error: Two argments are needed" 
+    echo "Error: Two arguments are needed" 
     exit 1
 fi
 
@@ -27,27 +28,27 @@ done
 num1=$1
 num2=$2
 
-#outputs the ressult of the calculation based on the operation performed
-print_result "Sum" $(expr "$num1" + "$num2")
-print_result "Difference" $(expr "$num1" - "$num2")
-print_result "Product" $(expr "$num1" \* "$num2")
+#outputs the result of the calculation based on the operation performed
+print_result "Sum" "$(expr "$num1" + "$num2")"
+print_result "Difference" "$(expr "$num1" - "$num2")"
+print_result "Product" "$(expr "$num1" \* "$num2")"
 
 #division by zero check, checks if the second number isnt 0 since if you divide by 0 its undefined and will throw an error
 if [ "$num2" -eq 0 ]; then
     print_result "Quotient" "Undefined (division by zero)"
     print_result "Remainder" "Undefined (division by zero)"
 else
-    print_result "Quotient" $(expr "$num1" / "$num2")
-    print_result "Remainder" $(expr "$num1" % "$num2")
+    print_result "Quotient" "$(expr "$num1" / "$num2")"
+    print_result "Remainder" "$(expr "$num1" % "$num2")"
 fi
 
-#Comparason check to see which is largfer and which is smaller, if they are equal it will output that they are equal
+#Comparison check to see which is larger and which is smaller, if they are equal it will output that they are equal
 if [ "$num1" -gt "$num2" ]; then
-    print_result "Comparason" "$num1 is greater than $num2"
+    print_result "Comparison" "$num1 is greater than $num2"
 elif [ "$num1" -lt "$num2" ]; then
-    print_result "Comparason" "$num1 is less than $num2"
+    print_result "Comparison" "$num1 is less than $num2"
 else
-    print_result "Comparason" "$num1 is equal to $num2"
+    print_result "Comparison" "$num1 is equal to $num2"
 fi
 
 #parity to see if num1 is even or odd
@@ -56,6 +57,7 @@ if [ $((num1 % 2)) -eq 0 ]; then
 else
     print_result "Parity" "$num1 is odd"
 fi
+
 #parity to see if num2 is even or odd
 if [ $((num2 % 2)) -eq 0 ]; then
     print_result "Parity" "$num2 is even"
