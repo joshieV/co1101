@@ -1,5 +1,16 @@
-# Author: Jason Reviewer: N-A
+# Author: Jason Reviewer: Joshua
 # Author StudentID: 269018964
+
+# Review:
+# Overall the code is good. However, there are a few things that can be improved
+#
+# Some whitespace could be removed to make the code more readable. For example, there are 
+# some extra blank lines in the code that could be removed to make it more compact and easier to read.
+#
+#
+#
+#
+#
 
 set -u
 
@@ -68,6 +79,5 @@ if [ $choice == y ]; then # If user enters "y"
     cd .. # Change current working directory to parent foldder
     rm -r $1 # Delete the directory with name equal to value of $1 in the current working directory
 else
-    cd $1 # Change current working directory to directory with name equal to value of $1 in the current working directory
     pwd # Output the address/path of the current working directory
 fi
